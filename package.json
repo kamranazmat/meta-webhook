@@ -1,69 +1,20 @@
 {
-  "name": "whatsapp-project-template",
-  "version": "0.0.1",
-  "description": "Github template for using the WhatsApp Business Platform Node.js SDK for the Cloud API, hosted by Meta",
-  "main": "build/app.js",
-  "types": "build/app.d.ts",
-  "files": [
-    "build",
-    "src"
-  ],
-  "type": "commonjs",
+  "name": "whatsapp-echo-webhook",
+  "version": "1.0.0",
+  "description": "An example WhatsApp webhook server https://developers.facebook.com/docs/whatsapp/sample-app-endpoints",
+  "main": "server.js",
+  "type": "module",
   "scripts": {
-    "start": "ts-node src/app.ts",
-    "prebuild": "run-s create-version-file",
-    "build": "rimraf ./lib && tsc -p tsconfig.json",
-    "create-version-file": "node ./scripts/create_version_file.mjs",
-    "test": "run-s build test:*",
-    "test:check-copyright-headers": "node ./scripts/check_copyright_headers.mjs",
-    "test:check-changelog": "node ./scripts/check_changelog.mjs",
-    "test:spelling": "cspell \"{README.md,.github/*.md,website/docs/**/*.md}\"",
-    "test:prettier": "run-s prettier-format",
-    "test:lint": "eslint . --ext .ts",
-    "prettier-format": "run-script-os",
-    "prettier-format:win32": "prettier --config .prettierrc \"./**/*.ts\" \"scripts/*.mjs\" --write",
-    "prettier-format:darwin:linux": "prettier --config .prettierrc './**/*.ts' 'scripts/*.mjs' --write",
-    "prettier-format:default": "prettier --config .prettierrc './**/*.ts' 'scripts/*.mjs' --write",
-    "prettier-watch": "run-script-os",
-    "prettier-watch:win32": "onchange \"./**/*.ts\" \"scripts/*.mjs\" -- prettier --write {{changed}}",
-    "prettier-watch:darwin:linux": "onchange './**/*.ts' 'scripts/*.mjs' -- prettier --write {{changed}}",
-    "prettier-watch:default": "onchange './**/*.ts' 'scripts/*.mjs' -- prettier --write {{changed}}"
+    "start": "node server.js"
   },
-  "repository": "https://github.com/WhatsApp/api_example_template_nodejs.git",
-  "author": "Rashed Talukder",
-  "license": "SEE LICENSE IN LICENSE FILE",
-  "keywords": [
-    "WhatsApp",
-    "Project",
-    "Template",
-    "Business",
-    "Platform",
-    "secure",
-    "messaging",
-    "NodeJS",
-    "Cloud API",
-    "Integration"
-  ],
-  "private": false,
+  "author": "WhatsApp Team",
+  "license": "MIT",
   "dependencies": {
-    "whatsapp": "github:WhatsApp/WhatsApp-Nodejs-SDK"
+    "axios": "^1.6.7",
+    "express": "^4.18.2"
   },
-  "devDependencies": {
-    "@jest/globals": "^29.5.0",
-    "@types/node": "^18.15.3",
-    "@typescript-eslint/eslint-plugin": "^5.55.0",
-    "@typescript-eslint/parser": "^5.55.0",
-    "cspell": "^6.29.2",
-    "eslint": "^8.36.0",
-    "eslint-config-prettier": "^8.7.0",
-    "eslint-plugin-jest": "^27.2.1",
-    "eslint-plugin-prettier": "^4.2.1",
-    "isbinaryfile": "^5.0.0",
-    "npm-run-all": "^4.1.5",
-    "prettier": "^2.8.4",
-    "rimraf": "^4.4.0",
-    "run-script-os": "^1.1.6",
-    "ts-node": "^10.9.1",
-    "typescript": "^4.9.5"
-  }
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "keywords": []
 }
